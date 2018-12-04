@@ -28,12 +28,64 @@
   </script>-->
 
   <link href="build/main.css" rel="stylesheet">
+ <!-- Materialize, Prettify, and Ardublockly CSS -->
+ <link rel="stylesheet" href="./assets/ardublockly/materialize/materialize.css" media="screen,projection">
+ <link rel="stylesheet" href="./assets/ardublockly/prettify/arduino.css">
+ <link rel="stylesheet" href="./assets/ardublockly/ardublockly.css" media="screen,projection">
 
+ <!-- Ardublockly - These three files contain the compress version-->
+ <script src="./assets/blockly/blockly_compressed.js"></script>
+ <script src="./assets/blockly/blocks_compressed.js"></script>
+ <script src="./assets/blockly/arduino_compressed.js"></script>
+  <!-- Default language js files, user selection appended to head on load -->
+  <script src="./assets/blockly/msg/js/en.js"></script>
+  <script src="./assets/ardublockly/msg/en.js"></script>
 </head>
 <body>
 
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
+  
+
+<!-- Desktop version of Ardublockly JS, needs to be loaded first. -->
+<script src="./assets/ardublockly/ardublockly_desktop.js"></script>
+<!-- jQuery and Materialize JS -->
+<script src="./assets/ardublockly/js_libs/jquery-2.1.3.min.js"></script>
+<script src="./assets/ardublockly/materialize/materialize.js"></script>
+<!-- FileSaver JS -->
+<script src="./assets/ardublockly/js_libs/FileSaver.min.js"></script>
+<!-- JS Diff -->
+<script src="./assets/ardublockly/js_libs/diff.js"></script>
+<!-- Prettify JS -->
+<script src="./assets/ardublockly/prettify/prettify.js"></script>
+<!-- Ardublockly app -->
+<script src="./assets/ardublockly/ardublocklyserver_ajax.js"></script>
+<script src="./assets/ardublockly/ardublockly_lang.js"></script>
+<script src="./assets/ardublockly/ardublockly_design.js"></script>
+<script src="./assets/ardublockly/ardublockly_toolbox.js"></script>
+<script src="./assets/ardublockly/ardublockly_blockly.js"></script>
+<script src="./assets/ardublockly/ardublockly.js"></script>
+<!-- copy to clipboard stuff -->
+<script src="./assets/ardublockly/js_libs/clipboard.min.js"></script>
+<script src="./assets/ardublockly/sensebox_extensions.js"></script>
+<script>
+  window.addEventListener('load', function load(event) {
+    window.removeEventListener('load', load, false);
+    Ardublockly.init();
+    SenseboxExtension.init();
+  });
+ 
+  
+</script>
+<script>
+$(window).bind("load", function() {
+
+document.getElementsByTagName('ion-content').item(0).appendChild(document.getElementsByClassName('ide_output_wrapper').item(0));
+
+});</script>
+
+
+
 
   <!-- The polyfills js is generated during the build process -->
   <script src="build/polyfills.js"></script>
@@ -45,5 +97,8 @@
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
 
+     
+
 </body>
+
 </html>
